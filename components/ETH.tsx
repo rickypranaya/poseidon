@@ -1,4 +1,4 @@
-function ETH(props) {
+function ETH(props: any) {
   return (
     <div className="relative">
       <div className="peer  cursor-pointer pr-0.5">
