@@ -10,7 +10,7 @@ import { navigation } from '../../constants/navigation'
 
 export default function NavBar() {
   return (
-    <Disclosure as="nav" className=" border-dark-base bg-gray-900">
+    <Disclosure as="nav" className=" border-dark-base bg-dark-darkest">
       {({ open }) => (
         <>
           <div className=" mx-auto px-2 sm:px-4 lg:px-8">
@@ -42,7 +42,7 @@ export default function NavBar() {
                 <div className="flex items-center">
                   <button
                     type="button"
-                    className="flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white"
+                    className="flex-shrink-0 rounded-full bg-dark-darker p-1 text-dark-light hover:text-white"
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
