@@ -1,32 +1,32 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import classNames from 'classnames';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import classNames from 'classnames'
 
 interface Props {
-  name: string;
-  href: string;
+  name: string
+  href: string
 }
 
 function NavButton(props: Props) {
-  const { name, href } = props;
-  const router = useRouter();
+  const { name, href } = props
+  const router = useRouter()
   const active =
-    href == '/' ? router.pathname == '/' : router.pathname.startsWith(href);
+    href == '/' ? router.pathname == '/' : router.pathname.startsWith(href)
 
   return (
     <Link href={href}>
       <a
         className={classNames(
-          ' px-3 py-2 rounded-md text-sm font-medium',
+          'rounded-md px-3 py-2 text-sm font-medium duration-200',
           active
-            ? 'bg-gray-900 text-white'
-            : 'hover:bg-gray-700 hover:text-white text-gray-300'
+            ? 'bg-dark-darkest text-white'
+            : 'text-gray-500 hover:bg-dark-darker hover:text-white'
         )}
       >
         {name}
       </a>
     </Link>
-  );
+  )
 }
 
-export default NavButton;
+export default NavButton

@@ -1,14 +1,14 @@
-import { Menu, Transition } from '@headlessui/react';
-import { Fragment } from 'react';
-import MenuItem from './MenuItem';
-import { profileNavigation } from '../../constants/navigation';
+import { Menu, Transition } from '@headlessui/react'
+import { Fragment } from 'react'
+import MenuItem from './MenuItem'
+import { profileNavigation } from '../../constants/navigation'
 
 const ProfileDropdown = () => {
   return (
     <>
-      <Menu as="div" className="ml-4 relative flex-shrink-0 z-20">
+      <Menu as="div" className="relative z-20 ml-4 flex-shrink-0">
         <div>
-          <Menu.Button className="bg-gray-800 rounded-full flex text-sm text-white">
+          <Menu.Button className="flex rounded-full bg-gray-800 text-sm text-white">
             <span className="sr-only">Open user menu</span>
             <img className="h-8 w-8 rounded-full" src="nft.png" alt="profile" />
           </Menu.Button>
@@ -22,7 +22,7 @@ const ProfileDropdown = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-dark-darker p-2 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             {profileNavigation.map((nav) => (
               <MenuItem key={nav.name} name={nav.name} href={nav.href} />
             ))}
@@ -30,7 +30,7 @@ const ProfileDropdown = () => {
         </Transition>
       </Menu>
     </>
-  );
-};
+  )
+}
 
-export default ProfileDropdown;
+export default ProfileDropdown

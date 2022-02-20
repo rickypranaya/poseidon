@@ -1,70 +1,73 @@
-import classNames from 'classnames';
-import SmallChart from '../SmallChart';
-import { chartData } from '../../constants/dummy';
-import ETH from '../ETH';
+import classNames from 'classnames'
+import SmallChart from '../SmallChart'
+import { chartData } from '../../constants/dummy'
+import ETH from '../ETH'
 
 function RowItem(props) {
-  const { type, collection } = props;
+  const { type, collection } = props
 
   // table column type [name, chart, normal]
   const columnType = (id) => {
-    let type;
+    let type
     if (id == 'name') {
-      type = 'name';
-    } else if (id == 'floor_price' || id == 'liquidity' || id == 'flow') {
+      type = 'name'
+    } else if (id == 'floor_price' || id == 'liquidity' || id == 'market_cap') {
       // type = 'chart'; uncomment to add chart later
-      type = 'normal';
+      type = 'normal'
     } else {
-      type = 'normal';
+      type = 'normal'
     }
-    return type;
-  };
+    return type
+  }
 
   const value = () => {
-    let value;
+    let value
     switch (type) {
       case 'name':
-        value = collection[type];
-        break;
+        value = collection[type]
+        break
       case 'age':
-        value = Number(collection[type]).toLocaleString();
-        break;
+        value = `${Number(collection[type]).toLocaleString()} days`
+        break
       case 'floor_price':
         value = (
           <div className="flex items-center">
             <ETH />
             {Number(collection[type]).toLocaleString()}
           </div>
-        );
-        break;
+        )
+        break
       case 'liquidity':
-        value = Number(collection[type]).toLocaleString();
-        break;
-      case 'flow':
-        value = Number(collection[type]).toLocaleString();
-        break;
-      case 'total_supply':
-        value = Number(collection[type]).toLocaleString();
-        break;
-      case 'distribution':
+        value = Number(collection[type]).toLocaleString()
+        break
+      case 'market_cap':
         value = (
-          collection['total_supply'] / collection['owners_count']
-        ).toFixed(2);
-        break;
+          <div className="flex items-center">
+            <ETH />
+            {Number(collection[type]).toLocaleString()}
+          </div>
+        )
+        break
+      case 'total_supply':
+        value = Number(collection[type]).toLocaleString()
+        break
+      case 'distribution':
+        value = collection['distribution'].toFixed(2)
+        break
 
       default:
-        break;
+        break
     }
 
-    return value;
-  };
+    return value
+  }
 
   return (
-    <td className="px-2 whitespace-nowrap text-sm font-medium text-zinc-200">
+    <td className="whitespace-nowrap px-2 text-sm font-medium text-zinc-200">
       <div
         className={classNames(
-          'flex items-center rounded-md py-1 px-2  justify-start',
-          columnType(type) == 'chart' && 'border border-dark-base justify-end',
+          'flex items-center justify-start rounded-md py-1  px-2',
+          columnType(type) == 'chart' && 'justify-end border border-dark-base',
           columnType(type) == 'normal' && 'justify-center'
         )}
       >
@@ -72,19 +75,19 @@ function RowItem(props) {
           className={classNames(
             'pr-2',
             columnType(type) == 'name' &&
-              'self-start w-52 whitespace-normal line-clamp-2'
+              'line-clamp-2 w-52 self-start whitespace-normal'
           )}
         >
           {value()}
         </span>
         {columnType(type) == 'chart' && (
-          <div className="w-20 h-9">
+          <div className="h-9 w-20">
             <SmallChart value="increase" data={chartData[0]} />
           </div>
         )}
       </div>
     </td>
-  );
+  )
 }
 
-export default RowItem;
+export default RowItem

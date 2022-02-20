@@ -1,45 +1,45 @@
-import { useEffect, useState, useRef } from 'react';
-import useDraggableScroll from 'use-draggable-scroll';
-import { thLists } from '../../constants/table';
-import Theader from './Theader';
-import Placeholder from './placeholder';
-import Profile from './Profile';
-import RowItem from './RowItem';
-import classNames from 'classnames';
-import DisplayCollection from '../displayCollection';
+import { useEffect, useState, useRef } from 'react'
+import useDraggableScroll from 'use-draggable-scroll'
+import { thLists } from '../../constants/table'
+import Theader from './Theader'
+import Placeholder from './placeholder'
+import Profile from './Profile'
+import RowItem from './RowItem'
+import classNames from 'classnames'
+import DisplayCollection from '../displayCollection'
 
 export default function Table(props) {
-  const [open, setOpen] = useState(false);
-  const [displayID, setDisplayID] = useState(0);
-  const { data, startIndex, ready } = props;
-  const [collections, setCollections] = useState([]);
-  const tableRef = useRef(null);
+  const [open, setOpen] = useState(false)
+  const [displayID, setDisplayID] = useState(0)
+  const { data, startIndex, ready } = props
+  const [collections, setCollections] = useState([])
+  const tableRef = useRef(null)
   const { onMouseDown } = useDraggableScroll(tableRef, {
     direction: 'horizontal',
-  });
+  })
 
   // updating table from pagination
   useEffect(() => {
     if (data) {
       const temp = data.map((object) => ({
         ...object,
-      }));
-      setCollections(() => [...temp]);
+      }))
+      setCollections(() => [...temp])
     } else {
-      setCollections([]);
+      setCollections([])
     }
-  }, [data]);
+  }, [data])
 
   return (
     <div className=" flex flex-col ">
-      <div className="overflow-hidden align-middle inline-block min-w-full ">
+      <div className="inline-block min-w-full overflow-hidden align-middle ">
         <div
           ref={tableRef}
           onMouseDown={onMouseDown}
-          className="overflow-x-auto overflow-y-hidden collection-table shadow border-b border-dark-base w-screen "
+          className="collection-table w-screen overflow-x-auto overflow-y-hidden border-b border-dark-base shadow "
         >
           <table className="min-w-full divide-y divide-dark-base ">
-            <thead className="bg-dark-darker z-50">
+            <thead className="z-50 bg-dark-darker">
               <tr>
                 <th />
                 {thLists.map((th) => (
@@ -49,7 +49,7 @@ export default function Table(props) {
             </thead>
             {!ready ? (
               <tbody>
-                {Array(20)
+                {Array(15)
                   .fill(0)
                   .map((i, idx) => (
                     <Placeholder key={idx} idx={idx} />
@@ -71,7 +71,7 @@ export default function Table(props) {
                       setOpen={setOpen}
                       rank={idx + startIndex + 1}
                       image={collection.image_url}
-                      verified={collection.is_verified}
+                      verified={Boolean(collection.is_verified)}
                       website={collection.website_url}
                       opensea={collection.opensea_url}
                       twitter={collection.twitter_url}
@@ -94,7 +94,7 @@ export default function Table(props) {
             )}
           </table>
           {!data && ready && (
-            <div className="w-full px-8 py-4 text-white font-medium">
+            <div className="w-full px-8 py-4 font-medium text-white">
               No Collections found
             </div>
           )}
@@ -102,5 +102,5 @@ export default function Table(props) {
       </div>
       <DisplayCollection id={displayID} open={open} setOpen={setOpen} />
     </div>
-  );
+  )
 }

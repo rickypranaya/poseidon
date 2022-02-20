@@ -8,14 +8,14 @@
 }
 
 .dropdown::-webkit-scrollbar-track {
-  background-color: #89919e;
+  background-color: #4b5563;
 }
 .dropdown::-webkit-scrollbar-track-piece {
-  background-color: #374151;
+  background-color: #1f2937;
 }
 .dropdown::-webkit-scrollbar-thumb {
   height: 50px;
-  background-color: #89919e;
+  background-color: #4b5563;
   border-radius: 50px;
 }
 

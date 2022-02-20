@@ -1,20 +1,21 @@
-import classNames from 'classnames';
-import { Menu } from '@headlessui/react';
+import classNames from 'classnames'
+import { Menu } from '@headlessui/react'
 
 interface Props {
-  name: string;
-  href: string;
+  name: string
+  href: string
 }
 
 const MenuItem = (props: Props) => {
-  const { name, href } = props;
+  const { name, href } = props
   return (
     <Menu.Item>
       {({ active }) => (
         <a
           href={href}
           className={classNames(
-            active ? 'bg-gray-900 text-white' : 'text-gray-300',
+            'rounded-md duration-100',
+            active ? 'bg-dark-base text-white' : 'text-gray-400',
             'block px-4 py-2 text-sm  font-medium'
           )}
         >
@@ -22,7 +23,7 @@ const MenuItem = (props: Props) => {
         </a>
       )}
     </Menu.Item>
-  );
-};
+  )
+}
 
-export default MenuItem;
+export default MenuItem

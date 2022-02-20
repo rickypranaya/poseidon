@@ -1,20 +1,20 @@
-import { Fragment } from 'react';
-import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/solid';
-import classNames from 'classnames';
-import MenuItem from './MenuItem';
+import { Fragment } from 'react'
+import { Menu, Transition } from '@headlessui/react'
+import { ChevronDownIcon } from '@heroicons/react/solid'
+import classNames from 'classnames'
+import MenuItem from './MenuItem'
 
 export default function Dropdown(props) {
   const { data, selected, setSelected, width, icon, responsive, variant } =
-    props;
+    props
 
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button
           className={classNames(
-            ' duration-200 items-center inline-flex justify-between rounded-md border border-grayfocus-300 shadow-sm  text-sm font-medium border-gray-600 text-gray-200 hover:bg-gray-700 ',
-            variant == 'small' ? 'px-2 py-1' : 'px-4 py-2'
+            ' border-grayfocus-300 inline-flex items-center justify-between rounded-md border border-dark-base text-sm  font-medium text-gray-200 shadow-sm duration-200 hover:bg-dark-darker ',
+            variant == 'small' ? 'px-2 py-1' : 'px-4 py-1.5'
           )}
         >
           <div className="flex">
@@ -25,7 +25,7 @@ export default function Dropdown(props) {
             </span>
             <span
               className={classNames(
-                variant == 'small' ? 'text-sm' : 'text-base'
+                variant == 'small' ? 'text-sm' : 'text-base',
               )}
             >
               {selected.name}
@@ -47,13 +47,13 @@ export default function Dropdown(props) {
       >
         <Menu.Items
           className={classNames(
-            ' dropdown w-full absolute left-0 mt-2 rounded-md shadow-xl z-50 bg-gray-700 ring-1 ring-black ring-opacity-5  focus:outline-none',
+            ' dropdown absolute left-0 z-50 mt-2 w-full rounded-md bg-dark-darker shadow-xl ring-1 ring-black ring-opacity-5  focus:outline-none',
             width
           )}
         >
           <div className="py-2 pl-2">
-            <div className=" dropdown max-h-56 overflow-y-auto overflow-hidden font-medium">
-              {data.map((item) => (
+            <div className=" dropdown max-h-56 overflow-hidden overflow-y-auto font-medium">
+              {data.map((item: { id: any }) => (
                 <MenuItem key={item.id} item={item} setSelected={setSelected} />
               ))}
             </div>
@@ -61,5 +61,5 @@ export default function Dropdown(props) {
         </Menu.Items>
       </Transition>
     </Menu>
-  );
+  )
 }

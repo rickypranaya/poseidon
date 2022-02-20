@@ -1,32 +1,32 @@
-import { Disclosure } from '@headlessui/react';
-import { useRouter } from 'next/router';
-import classNames from 'classnames';
+import { Disclosure } from '@headlessui/react'
+import { useRouter } from 'next/router'
+import classNames from 'classnames'
 
 interface Props {
-  name: string;
-  href: string;
+  name: string
+  href: string
 }
 
 const DisclosureButton = (props: Props) => {
-  const { name, href } = props;
-  const router = useRouter();
+  const { name, href } = props
+  const router = useRouter()
   const active =
-    href == '/' ? router.pathname == '/' : router.pathname.startsWith(href);
+    href == '/' ? router.pathname == '/' : router.pathname.startsWith(href)
 
   return (
     <Disclosure.Button
       as="a"
       href={href}
       className={classNames(
-        'block px-3 py-2 rounded-md text-base font-medium',
+        'block rounded-md px-3 py-2 text-base font-medium duration-100',
         active
           ? 'bg-gray-900 text-white'
-          : 'hover:bg-gray-700 hover:text-white text-gray-300'
+          : 'text-gray-400 hover:bg-dark-darker hover:text-white'
       )}
     >
       {name}
     </Disclosure.Button>
-  );
-};
+  )
+}
 
-export default DisclosureButton;
+export default DisclosureButton

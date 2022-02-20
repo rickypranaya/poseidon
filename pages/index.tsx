@@ -1,19 +1,16 @@
-// import Stats from '../components/Stats';
-import Undervalued from '../components/undervalued';
-import Header from '../components/Header';
-import Collection from '../components/topCollection';
+import Stats from '../components/stats'
+import Undervalued from '../components/undervalued'
+import Header from '../components/Header'
+import Collection from '../components/topCollection'
 
-function Home(props) {
+function Home() {
   return (
-    <div className="bg-dark-darkest min-h-screen h-full">
-      {/* =============== SECOND PHASE ===============
+    <div className="h-full min-h-screen bg-dark-darkest">
       <Stats />
-      <Header />
-    ============================================ */}
-    <Undervalued />
-   <Collection />
+      <Undervalued />
+      <Collection />
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

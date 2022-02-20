@@ -20,9 +20,9 @@ export const thLists = [
     info: 'Number of sales within the last 24 hours',
   },
   {
-    id: 'flow',
-    label: 'Flow',
-    info: 'Number of sales vs listings within the last 24 hours',
+    id: 'market_cap',
+    label: 'Market Cap',
+    info: 'Total current market cap of the collection',
   },
   {
     id: 'total_supply',

@@ -1,13 +1,16 @@
-import Metrics from './Metrics';
+import Metrics from './Metrics'
 function index(props) {
   return (
     <div className="flex">
-      <div className="bg-dark-base w-1/3 rounded-md animate-pulse" />
-      <div className="pl-8 w-2/3">
-        <div className="bg-dark-base w-40 h-6 rounded-md animate-pulse" />
-        <div className="bg-dark-base w-full h-3 rounded-md animate-pulse mt-4" />
-        <div className="bg-dark-base w-3/4 h-3 rounded-md animate-pulse mt-2" />
-        <div className="grid grid-cols-3 justify gap-4 py-4">
+      <div className="hidden w-1/3 animate-pulse rounded-md bg-dark-base md:block" />
+      <div className="w-full md:w-2/3 md:pl-8">
+        <div className="flex md:block items-center">
+          <div className="block h-36 w-2/5 animate-pulse rounded-md bg-dark-base md:hidden" />
+          <div className="ml-4 h-6 w-40 animate-pulse rounded-md bg-dark-base md:ml-0" />
+        </div>
+        <div className="mt-4 h-3 w-full animate-pulse rounded-md bg-dark-base" />
+        <div className="mt-2 h-3 w-3/4 animate-pulse rounded-md bg-dark-base" />
+        <div className="justify grid grid-cols-3 gap-4 py-4">
           <Metrics />
           <Metrics />
           <Metrics />
@@ -17,7 +20,7 @@ function index(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default index;
+export default index
