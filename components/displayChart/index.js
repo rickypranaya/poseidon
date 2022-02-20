@@ -5,12 +5,7 @@ import Chart from './Chart'
 import moment from 'moment'
 import classNames from 'classnames'
 
-export default function DisplayCollection(props: {
-  open: any
-  setOpen: any
-  item: any
-  data: any
-}) {
+export default function DisplayCollection(props) {
   const { open, setOpen, item, data } = props
 
   const now = moment().format('ddd, DD MMM, h:mm a')

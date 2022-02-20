@@ -53,7 +53,7 @@ export default function Dropdown(props) {
         >
           <div className="py-2 pl-2">
             <div className=" dropdown max-h-56 overflow-hidden overflow-y-auto font-medium">
-              {data.map((item: { id: any }) => (
+              {data.map((item) => (
                 <MenuItem key={item.id} item={item} setSelected={setSelected} />
               ))}
             </div>

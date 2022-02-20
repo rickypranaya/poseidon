@@ -6,11 +6,7 @@ import SearchResults from './SearchResults'
 import { API } from '../../constants/domain'
 import DisplayCollection from '../displayCollection'
 
-interface Props {
-  placeholder: string
-}
-
-function SearchBar(props: Props) {
+function SearchBar(props) {
   const { placeholder } = props
   const [ready, setReady] = useState(false)
   const [data, setData] = useState([])

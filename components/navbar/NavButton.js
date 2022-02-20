@@ -2,12 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 
-interface Props {
-  name: string
-  href: string
-}
-
-function NavButton(props: Props) {
+function NavButton(props) {
   const { name, href } = props
   const router = useRouter()
   const active =

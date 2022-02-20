@@ -1,12 +1,7 @@
 import classNames from 'classnames'
 import { Menu } from '@headlessui/react'
 
-interface Props {
-  name: string
-  href: string
-}
-
-const MenuItem = (props: Props) => {
+const MenuItem = (props) => {
   const { name, href } = props
   return (
     <Menu.Item>

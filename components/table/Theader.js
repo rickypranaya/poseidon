@@ -1,11 +1,8 @@
 import { InformationCircleIcon } from '@heroicons/react/solid';
 
-interface Props {
-  label: string;
-  info: string;
-}
 
-const Theader = (props: Props) => {
+
+const Theader = (props) => {
   const { label, info } = props;
   return (
     <th

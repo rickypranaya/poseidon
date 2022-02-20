@@ -2,12 +2,8 @@ import { Disclosure } from '@headlessui/react'
 import { useRouter } from 'next/router'
 import classNames from 'classnames'
 
-interface Props {
-  name: string
-  href: string
-}
 
-const DisclosureButton = (props: Props) => {
+const DisclosureButton = (props) => {
   const { name, href } = props
   const router = useRouter()
   const active =
