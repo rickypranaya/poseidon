@@ -1,5 +1,4 @@
 import { XIcon } from '@heroicons/react/solid';
-import { FilterButton } from '../../types';
 
 const FilterButton = (props) => {
   const { item, deleteItem } = props;

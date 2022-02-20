@@ -10,7 +10,6 @@ import {
 import Dropdown from '../dropdown'
 import RangeInput from './RangeInput'
 import { currencyOptions } from '../../constants/filter'
-import { RangeFilter } from '../../types'
 
 const RangeFilter = (props) => {
   const { open, label, info, type, filterList, updateFilter } = props
