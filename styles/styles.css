@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dropdown::-webkit-scrollbar {
+  width: 5px;
+  height: 3px;
+}
+
+.dropdown::-webkit-scrollbar-track {
+  background-color: #89919e;
+}
+.dropdown::-webkit-scrollbar-track-piece {
+  background-color: #374151;
+}
+.dropdown::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #89919e;
+  border-radius: 50px;
+}
+
+.collection-table::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.collection-table::-webkit-scrollbar-track {
+  background-color: #89919e;
+}
+.collection-table::-webkit-scrollbar-track-piece {
+  background-color: #374151;
+}
+.collection-table::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #89919e;
+  border-radius: 50px;
+}
